@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "description": "node on docker",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shehmil",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,33 @@
+
+
+pipeline {
+  agent any
+
+  stages {
+    stage('checkout') {
+      steps {
+        git url: 'https://github.com/shehmil/nodejs.git', branch 'development'
+      }
+      }
+      
+      stage('build') {
+      steps {
+        sh 'docker build  -t node:v1 .'
+      }
+      
+    }
+      
+      stage('test') {
+      steps {
+        echo "pass"
+      }
+
+       stage('deploy') {
+      steps {
+        echo "deploypass"
+      }
+
+    }
+  }
+}
+
