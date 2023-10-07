@@ -37,13 +37,16 @@ pipeline {
             }
         }
     
+    stage('Cleaning up') { 
 
-       stage('deploy') {
-      steps {
-        echo "deploypass"
-      }
+        steps { 
 
-    }
-  }
+            sh "docker rmi node_latest:${BUILD_NUMBER}'
+
+        }
+
+    } 
+
+}
 }
 
