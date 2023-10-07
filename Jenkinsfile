@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git url: 'https://github.com/shehmil/nodejs.git', branch 'development'
+        git url: "https://github.com/shehmil/nodejs.git", branch: 'master'
       }
       }
       
@@ -19,9 +19,9 @@ pipeline {
       
       stage('test') {
       steps {
-        echo "pass"
+        echo "pisass"
       }
-
+      }
        stage('deploy') {
       steps {
         echo "deploypass"
