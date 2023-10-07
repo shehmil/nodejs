@@ -4,12 +4,7 @@ pipeline {
   agent any
  environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
-            registry = "shehmil/nodejs" 
 
-    registryCredential = 'dockerhub' 
-
-   dockerImage = '' 
-        
  }
   stages {
     stage('checkout') {
@@ -31,23 +26,17 @@ pipeline {
       }
       }
 
-    stage('Deploy our image') { 
-
-        steps { 
-
-            script { 
-
-                docker.withRegistry( '', registryCredential ) {
-
-                    dockerImage.push() 
-
+      stage('Push Docker Image to Dockerhub'){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhub_TOKEN', variable: 'DOCKERHUB_USER_PASS')]) {
+                sh 'docker login -u marshallchabanga -p ${dockerhub_TOKEN}'dockerhub_TOKEN
+}
+                   sh 'shehmil/nodejs'
                 }
-
-            } 
-
+            }
         }
-
-    } 
+   
 
        stage('deploy') {
       steps {
