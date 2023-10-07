@@ -4,8 +4,12 @@ pipeline {
   agent any
  environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
-         registry = 'shehmil/nodejs'
-         registryCredential = 'dockerhub'
+            registry = "shehmil/nodejs" 
+
+    registryCredential = 'dockerhub' 
+
+   dockerImage = '' 
+        
  }
   stages {
     stage('checkout') {
