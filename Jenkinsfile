@@ -12,7 +12,7 @@ pipeline {
       
       stage('build') {
       steps {
-        sh 'docker build  -t node:${GIT_COMMIT} .'
+        sh 'docker build  -t node_latest:${GIT_COMMIT} .'
       }
       
     }
