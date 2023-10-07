@@ -15,7 +15,7 @@ pipeline {
       
       stage('build') {
       steps {
-        sh 'docker build  -t node_latest:${BUILD_NUMBER} .'
+        sh 'docker build  -t shehmil/nodejs:${BUILD_NUMBER} .'
       }
       
     }
@@ -32,7 +32,7 @@ pipeline {
                    withCredentials([string(credentialsId: 'dockerhub_TOKEN', variable: 'DOCKERHUB_USER_PASS')]) {
                 sh 'docker login -u shehmil -p ${DOCKERHUB_USER_PASS}'
 }
-                   sh 'docker push node_latest:${BUILD_NUMBER}'
+                   sh 'docker push shehmil/nodejs:${BUILD_NUMBER}'
                 }
             }
         }
