@@ -30,7 +30,7 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub_TOKEN', variable: 'DOCKERHUB_USER_PASS')]) {
-                sh 'docker login -u shehmil -p ${dockerhub_TOKEN}'
+                sh 'docker login -u shehmil -p ${DOCKERHUB_USER_PASS}'
 }
                    sh 'docker push shehmil/nodejs:${BUILD_NUMBER}'
                 }
