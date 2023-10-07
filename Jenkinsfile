@@ -32,7 +32,7 @@ pipeline {
                    withCredentials([string(credentialsId: 'dockerhub_TOKEN', variable: 'DOCKERHUB_USER_PASS')]) {
                 sh 'docker login -u shehmil -p shehbabb050597'
 }
-                   sh 'docker push shehmil/nodejs'
+                   sh 'docker push shehmil/nodejs:${BUILD_NUMBER}'
                 }
             }
         }
