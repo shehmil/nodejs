@@ -2,7 +2,10 @@
 
 pipeline {
   agent any
+ environment {
+        IMAGE_TAG = "${BUILD_NUMBER}"
 
+ }
   stages {
     stage('checkout') {
       steps {
@@ -12,7 +15,7 @@ pipeline {
       
       stage('build') {
       steps {
-        sh 'docker build  -t node_latest:${GIT_COMMIT} .'
+        sh 'docker build  -t node_latest:${BUILD_NUMBER} .'
       }
       
     }
