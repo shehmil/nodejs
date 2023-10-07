@@ -4,7 +4,8 @@ pipeline {
   agent any
  environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
-DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+         registry = 'shehmil/nodejs'
+         registryCredential ='dockerhub'
  }
   stages {
     stage('checkout') {
@@ -26,22 +27,16 @@ DOCKERHUB_CREDENTIALS=credentials('dockerhub')
       }
       }
 
-    stage('Login') {
-
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
-
-		stage('Push') {
-
-			steps {
-				sh 'docker push shehmil/nodejs:${BUILD_NUMBER}'
-			}
-		}
-	}
-
-
+  
+stage('Upload Image') {
+     steps{    
+         script {
+            docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+            }
+        }
+      }
+    }
 
        stage('deploy') {
       steps {
