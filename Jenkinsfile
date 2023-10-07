@@ -26,17 +26,17 @@ pipeline {
       }
       }
 
-      stage('Push Docker Image to Dockerhub'){
+   stage('Push Docker Image to Dockerhub'){
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub_TOKEN', variable: 'DOCKERHUB_USER_PASS')]) {
-                sh 'docker login -u shehmil -p ${dockerhub_TOKEN}'dockerhub_TOKEN
+                sh 'docker login -u shehmil -p ${DOCKER_PASSWORD}'
 }
-                   sh 'shehmil/nodejs'
+                   sh 'docker push shehmil/nodejs'
                 }
             }
         }
-   
+    
 
        stage('deploy') {
       steps {
