@@ -41,7 +41,7 @@ pipeline {
 
         steps { 
 
-            sh 'docker rmi node_latest:${BUILD_NUMBER}'
+            sh 'docker rmi shehmil/nodejs:${BUILD_NUMBER}'
 
         }
 
