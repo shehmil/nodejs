@@ -25,6 +25,17 @@ pipeline {
         echo "pisass"
       }
       }
+
+stage ('Push the artifacts'){
+steps{
+ script{
+   sh '''
+   echo 'Push to Repo'
+   docker push shehmil/nodejs:${BUILD_NUMBER}
+   '''
+   }
+  }
+ }
        stage('deploy') {
       steps {
         echo "deploypass"
