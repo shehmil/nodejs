@@ -1,8 +1,10 @@
-const express = require('express');
+import express, { json } from 'express';
+
+ //import express from "express";
 const app = express();
 const port = 3000;
 // Middleware to parse JSON data
-app.use(express.json());
+app.use(json());
 // Sample data - replace this with your actual data or connect to a database
 let users = [
 { id: 1, name: 'John Doe', age: 30 },
