@@ -23,7 +23,7 @@ pipeline {
       
       stage('test') {
       steps {
-        echo "pisass"
+        echo "testing completed"
       }
       }
 
