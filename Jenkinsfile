@@ -5,7 +5,7 @@ pipeline {
  environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
          registry = 'shehmil/nodejs'
-         registryCredential ='dockerhub'
+         registryCredential = 'dockerhub'
  }
   stages {
     stage('checkout') {
