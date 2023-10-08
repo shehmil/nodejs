@@ -35,18 +35,35 @@ pipeline {
                    sh 'docker push shehmil/nodejs:${BUILD_NUMBER}'
                 }
             }
-        }
-    
-    stage('Cleaning up') { 
+
+  }
+
+
+         stage('DEPLOYMENT') { 
 
         steps { 
 
-            sh 'docker rmi shehmil/nodejs:${BUILD_NUMBER}'
+            sh 'docker run -dp 5001:3000 shehmil/nodejs:${BUILD_NUMBER}'
 
-        }
+      }
+         }
+
+
+
+
+
+    
+    
+//     stage('Cleaning up') { 
+
+//         steps { 
+
+//             sh 'docker rmi shehmil/nodejs:${BUILD_NUMBER}'
+
+//         }
 
     } 
 
 }
-}
+// }
 
