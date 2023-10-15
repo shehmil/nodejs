@@ -53,15 +53,15 @@ pipeline {
     
     stage('Cleaning up') { 
 
-    //     steps { 
+     steps { 
 
     //         sh 'docker rmi shehmil/nodejs:${BUILD_NUMBER}'
 
       echo "cleaning completed"
 
-    //     }
+        }
 
-    // } 
+     } 
 
 }
 
