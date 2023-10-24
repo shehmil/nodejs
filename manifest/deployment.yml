@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nodejs
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: nodejs
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodejs
-        image: maheshkuligod07/javaspringboot-cicd:3
+        image: shehmil/nodejs:76
         ports:
-        - containerPort: 5001
+        - containerPort: 3000
