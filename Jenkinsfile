@@ -39,17 +39,35 @@ pipeline {
   }
 
 
-         stage('DEPLOYMENT') { 
+      //    stage('DEPLOYMENT') { 
 
-        steps { 
+      //   steps { 
 
-            sh 'docker run -dp 5001:3000 shehmil/nodejs:${BUILD_NUMBER}'
+      //       sh 'docker run -dp 5001:3000 shehmil/nodejs:${BUILD_NUMBER}'
 
-      }
-         }
+      // }
+      //    }
 
 
-    
+    stage('Update Deployment File') {
+        environment {
+            GIT_REPO_NAME = "nodejs"
+            GIT_USER_NAME = "shehmil"
+        }
+        steps {
+               withCredentials([string(credentialsId: 'git-token', variable: 'git passwd')]) {
+                sh '''
+                    git config user.email "shehmiljamal@gmail.com"
+                    git config user.name "shehmil"
+                    BUILD_NUMBER=${BUILD_NUMBER}
+                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yml
+                    git add manifest/deployment.yml
+                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+                    git push https://${git passwd}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
+                '''
+            }
+        }
+    }
     
     stage('Cleaning up') { 
 
