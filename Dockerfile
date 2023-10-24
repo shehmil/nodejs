@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:latest
 #Create a app directory
 WORKDIR /app
 #Install app dependencies
