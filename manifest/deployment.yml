@@ -18,4 +18,4 @@ spec:
       - name: nodejss
         image: shehmil/phptest:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 80
