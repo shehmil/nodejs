@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodejss
-        image: shehmil/phptest:latest
+        image: shehmil/phptest:replaceImageTag
         ports:
         - containerPort: 80
