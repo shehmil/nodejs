@@ -60,7 +60,7 @@ pipeline {
                 sh '''
                     git config user.email "shehmiljamal@gmail.com"
                     git config user.name "shehmil"
-                    sed -i "s/nodejs:.*/nodejs:replaceImageTag/g"
+                    sed -i "s/nodejs:.*/nodejs:replaceImageTag/g" manifest/deployment.yml
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yml
                     git add manifest/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
