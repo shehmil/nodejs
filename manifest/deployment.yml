@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejss
+  name: nodejs
   labels:
-    app: nodejss
+    app: nodejs
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodejss
+      app: nodejs
   template:
     metadata:
       labels:
-        app: nodejss
+        app: nodejs
     spec:
       containers:
-      - name: nodejss
+      - name: nodejs
         image: shehmil/nodejs:replaceImageTag
         ports:
-        - containerPort: 80
+        - containerPort: 3000
