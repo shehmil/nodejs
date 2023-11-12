@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodejs
-        image: shehmil/nodejs:101
+        image: shehmil/nodejs:102
         ports:
         - containerPort: 3000
