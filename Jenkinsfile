@@ -35,8 +35,8 @@ pipeline {
 
                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubpass', usernameVariable: 'dockerhubuser')]) {
                sh "docker login -u ${env.dockerhubuser} -p ${env.dockerhubpass}"
-               sh 'docker push ${env.dockerhubuser}/nodejs:${BUILD_NUMBER}'
-                  
+             //  sh 'docker push ${env.dockerhubuser}/nodejs:${BUILD_NUMBER}'
+             sh 'docker push shehmil/nodejs:${BUILD_NUMBER}'     
 }
                    
                 }
