@@ -1,3 +1,4 @@
+// ithonnumm correct change alla
 module.exports = {
     distDir: 'build',
     compress:true,
